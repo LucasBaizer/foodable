@@ -1,0 +1,7 @@
+{
+  "name": "lets-eat",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
