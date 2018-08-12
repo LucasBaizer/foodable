@@ -1,8 +1,8 @@
 {
-  "name": "lets-eat",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "foodable",
+  "version": "1.0.0",
+  "author": "Lucas Baizer",
+  "homepage": "http://foodable.app/",
   "private": true,
   "scripts": {
     "start": "ionic-app-scripts serve",
@@ -21,18 +21,55 @@
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
     "@ionic-native/core": "~4.11.0",
+    "@ionic-native/geolocation": "^4.11.0",
     "@ionic-native/splash-screen": "~4.11.0",
     "@ionic-native/status-bar": "~4.11.0",
-    "@ionic/storage": "2.1.3",
+    "@ionic/storage": "^2.1.3",
+    "@types/google-maps": "^3.2.0",
+    "cordova-android": "~7.0.0",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-geolocation": "^4.0.1",
+    "cordova-plugin-googlemaps": "^2.3.10",
+    "cordova-plugin-ionic-keyboard": "^2.1.2",
+    "cordova-plugin-ionic-webview": "^2.0.2",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-statusbar": "^2.4.2",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-sqlite-storage": "^2.3.3",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
+    "minimist": "^1.2.0",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
+    "xml2js": "^0.4.19",
     "zone.js": "0.8.26"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.11",
     "typescript": "~2.6.2"
   },
-  "description": "An Ionic project"
+  "description": "Find food banks near your location",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-googlemaps": {
+        "API_KEY_FOR_ANDROID": "AIzaSyDA2Q2pYWQRWvlxxvlvf_jT4lHVYcmKezo",
+        "API_KEY_FOR_IOS": "...",
+        "PLAY_SERVICES_VERSION": "15.0.1",
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-geolocation": {
+        "GEOLOCATION_USAGE_DESCRIPTION": "to find food banks near your location"
+      },
+      "cordova-sqlite-storage": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
 }

@@ -1,0 +1,25 @@
+<ion-header>
+	<ion-navbar>
+		<ion-buttons start>
+			<button ion-button (click)="closeModal()">Save</button>
+		</ion-buttons>
+		<ion-title>
+			Filter Search
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-item>
+		<ion-label>Radius (mi)</ion-label>
+		<ion-input type="text" [(ngModel)]="radius" value="{{filters.radius}}"></ion-input>
+	</ion-item>
+	<ion-item>
+		<ion-label>No Eligibility Requirements</ion-label>
+		<ion-checkbox item-end [(ngModel)]="noEligibility" checked="{{filters.noEligibility}}"></ion-checkbox>
+	</ion-item>
+	<ion-item>
+		<ion-label>Only Favorited Locations</ion-label>
+		<ion-checkbox item-end [(ngModel)]="favoriteOnly" checked="{{filters.favoriteOnly}}"></ion-checkbox>
+	</ion-item>
+</ion-content>

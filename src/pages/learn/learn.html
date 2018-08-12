@@ -1,0 +1,62 @@
+<ion-header>
+	<ion-navbar>
+		<ion-buttons start>
+			<button ion-button (click)="closeModal()">Close</button>
+		</ion-buttons>
+		<ion-title>
+			{{marker.name}}
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<button ion-button style="margin: 0 auto; display: block;" color="secondary" (click)="onFavorite()"><ion-icon id="favoriteIcon" name="{{marker.isFavorite ? 'star' : 'star-outline'}}"> Favorite</ion-icon></button>			
+	<ion-card>
+		<ion-card-header>
+			Location
+		</ion-card-header>
+		<ion-card-content>
+			<a target="_blank" href="{{googleMapsUrl}}">{{marker.street}}, {{marker.city}} {{marker.zip}}</a>
+		</ion-card-content>
+	</ion-card>
+	<ion-card>
+		<ion-card-header>
+			Foods
+		</ion-card-header>
+		<ion-card-content>
+			{{marker.foods}}
+		</ion-card-content>
+	</ion-card>
+	<ion-card>
+		<ion-card-header>
+			Hours
+		</ion-card-header>
+		<ion-card-content>
+			{{marker.hours}}
+		</ion-card-content>
+	</ion-card>
+	<ion-card>
+		<ion-card-header>
+			Phone
+		</ion-card-header>
+		<ion-card-content>
+			<a href="{{rawPhone}}">{{marker.phoneNumber}}</a>
+		</ion-card-content>
+	</ion-card>
+	<ion-card>
+		<ion-card-header>
+			Closures
+		</ion-card-header>
+		<ion-card-content>
+			{{marker.closures}}
+		</ion-card-content>
+	</ion-card>
+	<ion-card>
+		<ion-card-header>
+			Eligibility
+		</ion-card-header>
+		<ion-card-content>
+			<a target="_blank" href="{{marker.eligibilityUrl}}">{{marker.eligibility}}</a>
+		</ion-card-content>
+	</ion-card>
+</ion-content>
