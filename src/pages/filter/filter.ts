@@ -11,19 +11,28 @@ export class FilterSearch {
 	private viewCtrl: ViewController;
 
 	@Input() filters: ISearchFilters;
+	@Input() organizations: string[];
+	@Input() setFilters: any;
 
 	radius: string;
 	noEligibility: boolean;
 	favoriteOnly: boolean;
+	organization: string;
+	visibleOnly: boolean;
 	
 	constructor(viewCtrl: ViewController, toastCtrl: ToastController, params: NavParams) {
 		this.viewCtrl = viewCtrl;
 		this.toastCtrl = toastCtrl;
 
 		this.filters = params.get('filters');
+		this.organizations = params.get('organizations');
+		this.setFilters = params.get('setFilters');
+
 		this.radius = this.filters.radius.toString();
 		this.noEligibility = this.filters.noEligibility;
 		this.favoriteOnly = this.filters.favoriteOnly;
+		this.organization = this.filters.organization || '[Any Organization]';
+		this.visibleOnly = this.filters.visibleOnly;
 	}
 
 	closeModal() {
@@ -40,6 +49,10 @@ export class FilterSearch {
 		this.filters.noEligibility = this.noEligibility;
 		this.filters.favoriteOnly = this.favoriteOnly;
 		this.filters.radius = radius;
+		this.filters.organization = this.organization == '[Any Organization]' ? null : this.organization;
+		this.filters.visibleOnly = this.visibleOnly;
+
+		this.setFilters(this.filters);
 
 		this.viewCtrl.dismiss();
 	}

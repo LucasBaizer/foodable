@@ -15,11 +15,22 @@
 		<ion-input type="text" [(ngModel)]="radius" value="{{filters.radius}}"></ion-input>
 	</ion-item>
 	<ion-item>
+		<ion-label>Organization</ion-label>
+		<ion-select item-end [(ngModel)]="organization" selectedText="{{organization}}">
+			<ion-option value="[Any Organization]">[Any Organization]</ion-option>
+			<ion-option *ngFor="let org of organizations" [value]="org">{{org}}</ion-option>
+		</ion-select>
+	</ion-item>
+	<ion-item>
 		<ion-label>No Eligibility Requirements</ion-label>
 		<ion-checkbox item-end [(ngModel)]="noEligibility" checked="{{filters.noEligibility}}"></ion-checkbox>
 	</ion-item>
 	<ion-item>
 		<ion-label>Only Favorited Locations</ion-label>
 		<ion-checkbox item-end [(ngModel)]="favoriteOnly" checked="{{filters.favoriteOnly}}"></ion-checkbox>
+	</ion-item>
+	<ion-item>
+		<ion-label>Only Visible Locations</ion-label>
+		<ion-checkbox item-end [(ngModel)]="visibleOnly" checked="{{filters.visibleOnly}}"></ion-checkbox>
 	</ion-item>
 </ion-content>

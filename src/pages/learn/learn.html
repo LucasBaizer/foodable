@@ -13,6 +13,14 @@
 	<button ion-button style="margin: 0 auto; display: block;" color="secondary" (click)="onFavorite()"><ion-icon id="favoriteIcon" name="{{marker.isFavorite ? 'star' : 'star-outline'}}"> Favorite</ion-icon></button>			
 	<ion-card>
 		<ion-card-header>
+			Organization
+		</ion-card-header>
+		<ion-card-content>
+			<a href="{{marker.orgUrl}}">{{marker.orgName}}</a>
+		</ion-card-content>
+	</ion-card>
+	<ion-card>
+		<ion-card-header>
 			Location
 		</ion-card-header>
 		<ion-card-content>
