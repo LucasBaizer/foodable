@@ -13,6 +13,7 @@ export class FilterSearch {
 	@Input() filters: ISearchFilters;
 	@Input() organizations: string[];
 	@Input() setFilters: any;
+	@Input() isMobile: boolean;
 
 	radius: string;
 	noEligibility: boolean;
@@ -27,6 +28,7 @@ export class FilterSearch {
 		this.filters = params.get('filters');
 		this.organizations = params.get('organizations');
 		this.setFilters = params.get('setFilters');
+		this.isMobile = params.get('isMobile');
 
 		this.radius = this.filters.radius.toString();
 		this.noEligibility = this.filters.noEligibility;

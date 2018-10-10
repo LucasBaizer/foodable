@@ -205,6 +205,13 @@ export class HomePage {
 					address: this.search
 				},
 				success: data => {
+					if(typeof data["error_message"] !== "undefined") {
+						this.toastCtrl.create({
+							message: 'Could not geocode the location, please try again later!',
+							duration: 3000
+						}).present();
+						return;
+					}
 					let result: IPosition = data.results[0].geometry.location;
 					if(this.isMobile()) {
 						this.locations.forEach(marker => {
@@ -415,7 +422,8 @@ export class HomePage {
 			organizations: this.organizations,
 			setFilters: (filters) => {
 				this.filters = filters;
-			}
+			},
+			isMobile: this.isMobile()
 		}).present();
 	}
 

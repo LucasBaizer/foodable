@@ -92,5 +92,6 @@
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="to find food banks near your location" />
     </plugin>
     <plugin name="cordova-sqlite-storage" spec="^2.3.3" />
-    <engine name="android" spec="~7.0.0" />
+    <engine name="android" spec="7.0.0" />
+    <engine name="ios" spec="~4.5.5" />
 </widget>

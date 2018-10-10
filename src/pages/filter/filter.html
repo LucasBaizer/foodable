@@ -25,7 +25,7 @@
 		<ion-label>No Eligibility Requirements</ion-label>
 		<ion-checkbox item-end [(ngModel)]="noEligibility" checked="{{filters.noEligibility}}"></ion-checkbox>
 	</ion-item>
-	<ion-item>
+	<ion-item *ngIf="isMobile">
 		<ion-label>Only Favorited Locations</ion-label>
 		<ion-checkbox item-end [(ngModel)]="favoriteOnly" checked="{{filters.favoriteOnly}}"></ion-checkbox>
 	</ion-item>
