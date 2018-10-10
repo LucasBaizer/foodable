@@ -35,6 +35,7 @@ export class HomePage {
 	private filters: ISearchFilters;
 	private currentMarkers: any[];
 	private locations: IMarker[];
+	private lastInfoWindow: any;
 
 	search: string = "";
 
@@ -55,6 +56,7 @@ export class HomePage {
 			organization: null,
 			visibleOnly: false
 		};
+		this.lastInfoWindow = null;
 	}
   
 	ionViewDidLoad() {
@@ -202,7 +204,8 @@ export class HomePage {
 				type: 'GET',
 				url: 'https://maps.googleapis.com/maps/api/geocode/json',
 				data: {
-					address: this.search
+					address: this.search,
+					key: "AIzaSyDA2Q2pYWQRWvlxxvlvf_jT4lHVYcmKezo"
 				},
 				success: data => {
 					if(typeof data["error_message"] !== "undefined") {
@@ -496,14 +499,20 @@ export class HomePage {
 				.replace('[ELIGIBILITY]', eligibilityString);
 
 			this.map.panTo(mapsMarker.getPosition());
+
+			if(this.lastInfoWindow !== null) {
+				this.lastInfoWindow.close();
+			}
 			
 			let infoWindow = new google.maps.InfoWindow({
 				content: htmlInfoWindow.innerHTML
 			});
 			infoWindow.open(this.map, mapsMarker);
-			document.addEventListener('HtmlInfoWindow-Directions', getDirections);
-			
+			this.lastInfoWindow = infoWindow;
+
+			document.addEventListener('HtmlInfoWindow-Directions', getDirections);			
 			google.maps.event.addListenerOnce(infoWindow, 'closeclick', () => {
+				this.lastInfoWindow = null;
 				document.removeEventListener('HtmlInfoWindow-Directions', getDirections);
 			});
 		}
